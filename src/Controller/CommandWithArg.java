@@ -5,6 +5,6 @@ package Controller;
 import java.io.IOException;
 
 //указывает что для команды нужно создание города(типа add, update)
-public interface CommandWithObject extends Commandable {
-    String execute(Object o) throws IOException;
+public interface CommandWithObject {
+    String execute(Object arg) throws IOException;
 }
