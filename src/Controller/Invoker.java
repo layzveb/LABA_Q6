@@ -2,11 +2,11 @@ package Controller;
 
 
 import Commands.AbstractCommand;
+import Exceptions.ExtraArgumentException;
+import Exceptions.NoArgumentException;
 import Exceptions.NoCommandException;
 import Utilites.ColorEdit;
-import Utilites.Console;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayDeque;
 import java.util.Map;
@@ -54,12 +54,19 @@ public class Invoker {
             AbstractCommand ans = commands.get(commandName.toUpperCase());
             if (ans == null) throw new NoCommandException();
             commandHistory.addLast(ans.getName());
+            if (ans instanceof CommandWithoutArg && !commandArg.equals("")){
+                throw new ExtraArgumentException();
+            }else if (ans instanceof CommandWithArg && commandArg.equals("")) {
+                throw new NoArgumentException();
+            }
             return ans.execute(commandArg);
-        } catch (IOException e) {
-            e.printStackTrace();
-            return ColorEdit.RED_BOLD + "Ошибка\n" + ColorEdit.RESET;
+
         } catch (NoCommandException e) {
             return ColorEdit.RED_BOLD + "Такой команды не существует..." + ColorEdit.RESET;
+        } catch (ExtraArgumentException e) {
+            return "Данной команде"+ColorEdit.RED_BOLD+"НЕ НУЖЕН"+ColorEdit.RESET+"аргумент. Проверьте аргументацию\n";
+        } catch (NoArgumentException e) {
+            return "Данной команде"+ColorEdit.RED_BOLD+"НУЖЕН"+ColorEdit.RESET+"аргумент. Проверьте аргументацию\n";
         }
     }
 }

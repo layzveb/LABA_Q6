@@ -1,14 +1,14 @@
 package Commands;
 
 import Controller.Collection;
-import Controller.CommandWithObject;
+import Controller.CommandWithArg;
 import Exceptions.WrongCommandFormat;
 import SpaceMarine.SpaceMarine;
 import SpaceMarine.SpaceMarineGenerator;
 
 import java.util.InputMismatchException;
 
-public class Update extends AbstractCommand {
+public class Update extends AbstractCommand implements CommandWithArg {
 
     public Update() {
         super("update", "[id] обновление значения элемента коллекции, id которого равен заданному");
@@ -17,17 +17,13 @@ public class Update extends AbstractCommand {
     @Override
     public String execute(Object arg) {
         try {
-            if (!arg.equals("")) {
-                int id = Integer.parseInt(String.valueOf(arg));
-                if (!Collection.isKeyFree(id)) {
-                    SpaceMarine spaceMarine = SpaceMarineGenerator.generate();
-                    spaceMarine.setId(id);
-                    Collection.update(id, spaceMarine);
-                    return ("Космический корабль с id [" + arg + "] успешно обновлен.");
-                } else return ("Космический корабль с указанным id не найден.");
-            } else throw new WrongCommandFormat();
-        } catch (WrongCommandFormat e) {
-            return "Данной команде НУЖЕН аргумент. Проверьте аргументацию\n";
+            int id = Integer.parseInt(String.valueOf(arg));
+            if (!Collection.isKeyFree(id)) {
+                SpaceMarine spaceMarine = SpaceMarineGenerator.generate();
+                spaceMarine.setId(id);
+                Collection.update(id, spaceMarine);
+                return ("Космический корабль с id [" + arg + "] успешно обновлен.");
+            } else return ("Космический корабль с указанным id не найден.");
         } catch (NumberFormatException | InputMismatchException e) {
             return ("Аргумент команды должен быть типа \"int\"");
         } catch (NullPointerException e) {

@@ -5,7 +5,7 @@ import Controller.CommandWithoutArg;
 import Exceptions.WrongCommandFormat;
 import Utilites.Console;
 
-public class Clear extends AbstractCommand {
+public class Clear extends AbstractCommand implements CommandWithoutArg{
 
     public Clear() {
         super("clear", "очистить коллекцию");
@@ -13,16 +13,11 @@ public class Clear extends AbstractCommand {
 
     @Override
     public String execute(Object o) {
-        try {
-            if (o.equals("")) {
-                if (Collection.getSize() == 0) return ("Коллекция итак пустая.");
-                else {
-                    Collection.clear();
-                    return ("Коллекция очищена");
-                }
-            } else throw new WrongCommandFormat();
-        } catch (WrongCommandFormat e) {
-            return "Данной команде НЕ НУЖЕН аргумент. Проверьте аргументацию\n";
-        }
+//        if (Collection.getSize() == 0) return ("Коллекция итак пустая.");
+//        else {
+//            Collection.clear();
+//            return ("Коллекция очищена");
+//        }
+        return "tttttt";
     }
 }

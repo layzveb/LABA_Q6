@@ -1,10 +1,12 @@
 package Commands;
 
-import Controller.CommandWithObject;
+import Controller.CommandWithArg;
 import Controller.CommandWithoutArg;
 import Utilites.ColorEdit;
 
-public abstract class AbstractCommand implements CommandWithoutArg, CommandWithObject {
+import java.io.Serializable;
+
+public abstract class AbstractCommand implements Serializable {
     private String name;
     private String description;
 
@@ -18,9 +20,12 @@ public abstract class AbstractCommand implements CommandWithoutArg, CommandWithO
     }
     public String getDescription() {return description;}
 
+    public abstract String execute(Object commandArg);
 
     @Override
     public String toString() {
         return new StringBuilder().append(ColorEdit.YELLOW_BOLD_BRIGHT).append(" ✧  ").append(name).append(ColorEdit.RESET).append(ColorEdit.BLUE_BRIGHT).append(" ⋯ ").append(ColorEdit.RESET).append(description).toString();
     }
+
+
 }

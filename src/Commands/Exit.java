@@ -3,7 +3,7 @@ package Commands;
 import Controller.CommandWithoutArg;
 import Exceptions.WrongCommandFormat;
 
-public class Exit extends AbstractCommand {
+public class Exit extends AbstractCommand implements CommandWithoutArg {
 
     public Exit() {
         super("exit", "завершение программы без сохранения в файл");
@@ -11,13 +11,7 @@ public class Exit extends AbstractCommand {
 
     @Override
     public String execute(Object o) {
-        try {
-            if (o.equals("")) {
-                System.exit(0);
-                return null;
-            } else throw new WrongCommandFormat();
-        } catch (WrongCommandFormat e) {
-            return "Данной команде НЕ НУЖЕН аргумент. Проверьте аргументацию\n";
-        }
+        System.exit(0);
+        return null;
     }
 }

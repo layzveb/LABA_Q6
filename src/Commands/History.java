@@ -4,7 +4,7 @@ import Controller.CommandWithoutArg;
 import Controller.Invoker;
 import Exceptions.WrongCommandFormat;
 
-public class History extends AbstractCommand {
+public class History extends AbstractCommand implements CommandWithoutArg {
     private Invoker invoker;
 
     public History(Invoker invoker) {
@@ -14,13 +14,7 @@ public class History extends AbstractCommand {
 
     @Override
     public String execute(Object o) {
-        try {
-            if (o.equals("")) {
         return invoker.history();
-            } else throw new WrongCommandFormat();
-        } catch (WrongCommandFormat e) {
-            return "Данной команде НЕ НУЖЕН аргумент. Проверьте аргументацию\n";
-        }
     }
 }
 

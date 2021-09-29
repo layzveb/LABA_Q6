@@ -8,22 +8,16 @@ import Utilites.WriterToFile;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-public class Save extends AbstractCommand {
+public class Save extends AbstractCommand implements CommandWithoutArg {
 
     public Save() {
         super("save", "сохранение коллекции в файл");
     }
 
     @Override
-    public String execute(Object o) throws IOException {
-        try {
-            if (o.equals("")) {
+    public String execute(Object o) {
         WriterToFile.writeCollection(Collection.getCollection());
         return "Коллекция успешно сохранена.";
-            } else throw new WrongCommandFormat();
-        } catch (WrongCommandFormat e) {
-            return "Данной команде НЕ НУЖЕН аргумент. Проверьте аргументацию\n";
-        }
     }
 }
 

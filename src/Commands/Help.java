@@ -4,7 +4,7 @@ import Controller.CommandWithoutArg;
 import Controller.Invoker;
 import Exceptions.WrongCommandFormat;
 
-public class Help extends AbstractCommand {
+public class Help extends AbstractCommand implements CommandWithoutArg {
     String name = "help";
     private Invoker invoker;
 
@@ -15,17 +15,7 @@ public class Help extends AbstractCommand {
 
     @Override
     public String execute(Object o) {
-        try {
-            if (o.equals("")) {
-                return (invoker.getHelp());
-            } else throw new WrongCommandFormat();
-        } catch (WrongCommandFormat e) {
-            return "Данной команде НЕ НУЖЕН аргумент. Проверьте аргументацию\n";
-        }
+        return (invoker.getHelp());
     }
 
-    @Override
-    public String getName() {
-        return name;
-    }
 }
