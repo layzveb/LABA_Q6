@@ -1,10 +1,15 @@
 package Server;
 
+import Client.Console;
+import Utilites.ColorEdit;
+
 import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
 import java.net.SocketException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class PacketTool {
     private DatagramSocket serverSocket;
@@ -26,24 +31,25 @@ public class PacketTool {
             socketException.printStackTrace();
         }
         receivePacket = new DatagramPacket(dataBuffer, dataBuffer.length);
-        System.out.println("ждем-с");
+        System.out.println("ждем-с клиента");
 
         try {
             serverSocket.receive(receivePacket);
-            System.out.println("успех!");
+            System.out.println("дождались! клиент на UDP...            сожалею");
         } catch (IOException ioException) {
             ioException.printStackTrace();
         }
         //из пакета вытягиваю данные о клиенте его адрес и порт, по которому идет связь
         IPAddress = receivePacket.getAddress();
         clientPort = receivePacket.getPort();
+        send(new byte[1]);
     }
 
     public byte[] receive() {
          receivePacket = new DatagramPacket(dataBuffer, dataBuffer.length);
         try {
             serverSocket.receive(receivePacket);
-            System.out.println("poluchau");
+            Console.write(ColorEdit.CYAN_BRIGHT+"﹦﹦﹦﹦﹦﹦﹦"+ColorEdit.YELLOW+" запрос пришёль"+ColorEdit.CYAN_BRIGHT+" ﹦﹦﹦ "+ColorEdit.YELLOW+ LocalDateTime.now().format(DateTimeFormatter.ofPattern("d-MM-y H:m:s:ms"))+ColorEdit.CYAN_BRIGHT+" ﹦﹦﹦﹦﹦﹦﹦⥤"+ColorEdit.RESET);
             return receivePacket.getData();
         } catch (IOException ioException) {
             ioException.printStackTrace();
@@ -55,7 +61,7 @@ public class PacketTool {
          sendPacket = new DatagramPacket(toSend, toSend.length, IPAddress, clientPort);
         try {
             serverSocket.send(sendPacket);
-            System.out.println("отправил");
+            Console.write(ColorEdit.CYAN_BRIGHT+"⥢﹦﹦﹦﹦﹦﹦﹦﹦"+ColorEdit.YELLOW+" ответ ушёль"+ColorEdit.CYAN_BRIGHT+" ﹦﹦﹦ "+ColorEdit.YELLOW+LocalDateTime.now().format(DateTimeFormatter.ofPattern("d-MM-y H:m:s:ms"))+ColorEdit.CYAN_BRIGHT+" ﹦﹦﹦﹦﹦﹦﹦"+ColorEdit.RESET);
         } catch (IOException e) {
             e.printStackTrace();
         }

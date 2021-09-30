@@ -1,7 +1,11 @@
 package Client;
 
+import Utilites.ColorEdit;
+
 import java.io.IOException;
 import java.net.*;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class PacketTool {
 
@@ -30,13 +34,17 @@ public class PacketTool {
         }
         byte[] pack = new byte[1];
         send(pack);
+
+            receive();
+            Console.write(ColorEdit.CYAN_BRIGHT+"⥢﹦﹦﹦﹦﹦﹦﹦﹦﹦﹦ "+ ColorEdit.GREEN_BOLD_BRIGHT+ "УСПЕШНОЕ ПОДКЛЮЧЕНИЕ"+ ColorEdit.RESET+ ColorEdit.CYAN_BRIGHT +" ﹦﹦﹦﹦﹦﹦﹦﹦﹦﹦﹦﹦﹦⥤" + ColorEdit.RESET);
+
     }
 
     public byte[] receive() {
          receivePacket = new DatagramPacket(dataBuffer, dataBuffer.length);
         try {
             clientSocket.receive(receivePacket);
-            System.out.println("poluchau");
+            Console.write(ColorEdit.CYAN_BRIGHT+"⥢﹦﹦﹦﹦﹦﹦ "+ColorEdit.YELLOW+"ответ"+ColorEdit.CYAN_BRIGHT+" ﹦﹦﹦ "+ColorEdit.YELLOW+LocalDateTime.now().format(DateTimeFormatter.ofPattern("d-MM-y H:m:s:ms"))+ColorEdit.CYAN_BRIGHT+" ﹦﹦﹦﹦﹦﹦﹦﹦"+ColorEdit.RESET);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -47,7 +55,7 @@ public class PacketTool {
         sendPacket = new DatagramPacket(toSend,toSend.length,IPAddress,ACTIVE_PORT);
         try {
             clientSocket.send(sendPacket);
-            System.out.println("пакет отправлен!");
+            Console.write(ColorEdit.CYAN_BRIGHT+"﹦﹦﹦﹦﹦﹦﹦"+ColorEdit.YELLOW+" запрос"+ColorEdit.CYAN_BRIGHT+" ﹦﹦﹦ "+ColorEdit.YELLOW+LocalDateTime.now().format(DateTimeFormatter.ofPattern("d-MM-y H:m:s:ms"))+ColorEdit.CYAN_BRIGHT+" ﹦﹦﹦﹦﹦﹦﹦⥤"+ColorEdit.RESET);
         } catch (IOException e) {
             e.printStackTrace();
         }

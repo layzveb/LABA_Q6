@@ -1,8 +1,7 @@
-package Commands;
+package Client.Commands;
 
 import Controller.Collection;
 import Controller.CommandWithoutArg;
-import Exceptions.WrongCommandFormat;
 import SpaceMarine.SpaceMarine;
 
 import java.util.Map;

@@ -1,10 +1,7 @@
-package Commands;
+package Client.Commands;
 
 import Controller.Collection;
 import Controller.CommandWithoutArg;
-import Exceptions.WrongCommandFormat;
-
-import java.text.CollationKey;
 
 public class Max_by_id extends AbstractCommand implements CommandWithoutArg {
 

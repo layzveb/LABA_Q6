@@ -1,8 +1,7 @@
-package Commands;
+package Client.Commands;
 
+import Client.Invoker;
 import Controller.CommandWithoutArg;
-import Controller.Invoker;
-import Exceptions.WrongCommandFormat;
 
 public class History extends AbstractCommand implements CommandWithoutArg {
     private Invoker invoker;
@@ -14,7 +13,7 @@ public class History extends AbstractCommand implements CommandWithoutArg {
 
     @Override
     public String execute(Object o) {
-        return invoker.history();
+        return null;
     }
 }
 

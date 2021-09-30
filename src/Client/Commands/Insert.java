@@ -1,8 +1,7 @@
-package Commands;
+package Client.Commands;
 
 import Controller.Collection;
 import Controller.CommandWithArg;
-import Exceptions.WrongCommandFormat;
 import SpaceMarine.SpaceMarine;
 import SpaceMarine.SpaceMarineGenerator;
 

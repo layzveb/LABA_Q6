@@ -1,11 +1,9 @@
-package Commands;
+package Server.Commands;
 
 import Controller.Collection;
 import Controller.CommandWithoutArg;
-import Exceptions.WrongCommandFormat;
 import SpaceMarine.SpaceMarine;
 
-import java.io.IOException;
 import java.util.ArrayDeque;
 import java.util.Map;
 

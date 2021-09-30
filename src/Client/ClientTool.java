@@ -1,8 +1,7 @@
 package Client;
 
-import CommonObjects.CommandKicker;
 import CommonObjects.Serializer;
-import CommonObjects.ServerAnswer;
+import Server.ServerAnswer;
 
 public class ClientTool {
     private PacketTool packetTool;

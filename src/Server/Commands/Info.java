@@ -1,8 +1,7 @@
-package Commands;
+package Server.Commands;
 
 import Controller.CommandWithoutArg;
 import Controller.Collection;
-import Exceptions.WrongCommandFormat;
 
 
 public class Info extends AbstractCommand implements CommandWithoutArg {

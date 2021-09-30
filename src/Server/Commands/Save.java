@@ -1,12 +1,8 @@
-package Commands;
+package Server.Commands;
 
 import Controller.Collection;
 import Controller.CommandWithoutArg;
-import Exceptions.WrongCommandFormat;
 import Utilites.WriterToFile;
-
-import java.io.FileNotFoundException;
-import java.io.IOException;
 
 public class Save extends AbstractCommand implements CommandWithoutArg {
 

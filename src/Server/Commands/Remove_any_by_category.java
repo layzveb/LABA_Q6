@@ -1,11 +1,9 @@
-package Commands;
+package Server.Commands;
 
 import Controller.Collection;
 import Controller.CommandWithArg;
-import Exceptions.WrongCommandFormat;
 import SpaceMarine.SpaceMarine;
 
-import java.io.IOException;
 import java.util.Map;
 
 public class Remove_any_by_category extends AbstractCommand implements CommandWithArg {

@@ -1,7 +1,6 @@
-package Commands;
+package Server.Commands;
 
 import Controller.CommandWithoutArg;
-import Exceptions.WrongCommandFormat;
 
 public class Exit extends AbstractCommand implements CommandWithoutArg {
 

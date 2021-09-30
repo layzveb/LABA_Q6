@@ -1,5 +1,8 @@
 package CommonObjects;
 
+import Client.CommandKicker;
+import Server.ServerAnswer;
+
 import java.io.*;
 
 public class Serializer {

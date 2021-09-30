@@ -1,7 +1,5 @@
-package Commands;
+package Client.Commands;
 
-import Controller.CommandWithArg;
-import Controller.CommandWithoutArg;
 import Utilites.ColorEdit;
 
 import java.io.Serializable;

@@ -1,6 +1,6 @@
-package CommonObjects;
+package Client;
 
-import Commands.AbstractCommand;
+import Client.Commands.AbstractCommand;
 
 import java.io.Serializable;
 
@@ -9,13 +9,13 @@ public class CommandKicker implements Serializable {
 
     private AbstractCommand command;
     private String commandArg;
-    
+
     public CommandKicker(AbstractCommand command, String commandArg) {
         this.command = command;
         this.commandArg = commandArg;
     }
 
-    public AbstractCommand getCommandName() {
+    public AbstractCommand getActualCommand() {
         return command;
     }
 

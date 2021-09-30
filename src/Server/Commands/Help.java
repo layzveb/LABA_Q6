@@ -1,8 +1,7 @@
-package Commands;
+package Server.Commands;
 
 import Controller.CommandWithoutArg;
-import Controller.Invoker;
-import Exceptions.WrongCommandFormat;
+import Server.Invoker;
 
 public class Help extends AbstractCommand implements CommandWithoutArg {
     String name = "help";
