@@ -12,8 +12,7 @@ public class Save extends AbstractCommand implements CommandWithoutArg {
 
     @Override
     public String execute(Object o) {
-        WriterToFile.writeCollection(Collection.getCollection());
-        return "Коллекция успешно сохранена.";
+        return null;
     }
 }
 

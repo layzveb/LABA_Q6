@@ -11,9 +11,7 @@ public class Max_by_id extends AbstractCommand implements CommandWithoutArg {
 
     @Override
     public String execute(Object o) {
-        if (Collection.getSize() == 0) return ("Коллекция пустая.");
-        else
-            return Collection.getCollection().lastEntry().getValue().toString();
+            return null;
     }
 }
 

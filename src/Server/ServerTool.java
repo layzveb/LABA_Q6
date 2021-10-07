@@ -2,6 +2,7 @@ package Server;
 
 import Client.CommandKicker;
 import CommonObjects.Serializer;
+import CommonObjects.UniversalObjectToSend;
 
 public class ServerTool {
     private PacketTool packetTool;
@@ -12,7 +13,7 @@ public class ServerTool {
         siri = serializer;
     }
 
-    public CommandKicker receiveCommandObj() {
+    public UniversalObjectToSend receiveUniversalObject() {
         byte[] inComm = packetTool.receive();
         UniversalObjectToSend messObj = siri.unserializeRequest(inComm);
         return messObj;

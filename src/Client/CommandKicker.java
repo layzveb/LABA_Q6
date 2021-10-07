@@ -1,6 +1,7 @@
 package Client;
 
 import Client.Commands.AbstractCommand;
+import SpaceMarine.SpaceMarine;
 
 import java.io.Serializable;
 
@@ -9,6 +10,7 @@ public class CommandKicker implements Serializable {
 
     private AbstractCommand command;
     private String commandArg;
+    private SpaceMarine spaceMarine;
 
     public CommandKicker(AbstractCommand command, String commandArg) {
         this.command = command;
@@ -18,11 +20,7 @@ public class CommandKicker implements Serializable {
     public AbstractCommand getActualCommand() {
         return command;
     }
-
-    public void setCommandName(AbstractCommand commandName) {
-        this.command = commandName;
-    }
-
+    
     public String getCommandArg() {
         return commandArg;
     }
@@ -31,5 +29,11 @@ public class CommandKicker implements Serializable {
         this.commandArg = commandArg;
     }
 
-
+    public void setSpaceMarine(SpaceMarine spaceMarine) {
+        this.spaceMarine = spaceMarine;
+    }
+    
+    public SpaceMarine getSpaceMarine() {
+        return spaceMarine;
+    }
 }

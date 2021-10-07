@@ -12,7 +12,7 @@ public class Info extends AbstractCommand implements CommandWithoutArg {
 
     @Override
     public String execute(Object o) {
-        return Collection.getInfo();
+        return null;
     }
 }
 

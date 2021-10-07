@@ -11,7 +11,7 @@ public class ClientTest {
         ClientTool clientTool = new ClientTool(client, serializer);
         Invoker invoker = new Invoker(clientTool);
         invoker.regist(new Clear(), new Exit(), new Help(invoker), new History(invoker), new Info(),
-                new Insert(), new Max_by_id(), new Remove_key(), new Replace_if_greater(), new Save(), new Show(),
+                new Insert(clientTool), new Max_by_id(), new Remove_key(), new Replace_if_greater(), new Save(), new Show(),
                 new Update(), new Print_descending(), new Remove_any_by_category());
 
         while (true) {

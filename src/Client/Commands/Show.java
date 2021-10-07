@@ -14,10 +14,6 @@ public class Show extends AbstractCommand implements CommandWithoutArg{
 
     @Override
     public String execute(Object o) {
-        StringBuilder res = new StringBuilder();
-        if (Collection.getSize() == 0) return ("Коллекция пустая.");
-        else for (Map.Entry<Integer, SpaceMarine> entry : Collection.getCollection().entrySet())
-            res.append(entry.getValue()).append("\n");
-        return res.toString();
+        return null;
     }
 }

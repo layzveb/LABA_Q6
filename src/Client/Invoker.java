@@ -8,6 +8,8 @@ import Controller.CommandWithoutArg;
 import Exceptions.ExtraArgumentException;
 import Exceptions.NoArgumentException;
 import Exceptions.NoCommandException;
+import SpaceMarine.SpaceMarine;
+import SpaceMarine.SpaceMarineGenerator;
 import Utilites.ColorEdit;
 import java.util.Map;
 import java.util.TreeMap;
@@ -37,8 +39,100 @@ public class Invoker {
             }else if (actualCommand instanceof CommandWithArg && commandArg.equals("")) {
                 throw new NoArgumentException();
             }
-            CommandKicker commandKicker = new CommandKicker(actualCommand,commandArg);
-            clientTool.sendCommand(commandKicker);
+
+            if (actualCommand instanceof Clear) {
+                ClearDTO clearDTO = new ClearDTO();
+                clientTool.sendRequest(clearDTO);
+            }
+            if (actualCommand instanceof Exit) {
+                ExitDTO exitDTO = new ExitDTO();
+                clientTool.sendRequest(exitDTO);
+            }
+            if (actualCommand instanceof Help) {
+                HelpDTO  helpDTO= new HelpDTO();
+                clientTool.sendRequest(helpDTO);
+            }
+            if (actualCommand instanceof History) {
+                HistoryDTO historyDTO = new HistoryDTO();
+                clientTool.sendRequest(historyDTO);
+            }
+            if (actualCommand instanceof Info) {
+                InfoDTO infoDTO = new InfoDTO();
+                clientTool.sendRequest(infoDTO);
+            }
+            if (actualCommand instanceof Max_by_id) {
+                MaxByIdDTO maxByIdDTO = new MaxByIdDTO();
+                clientTool.sendRequest(maxByIdDTO);
+            }
+            if (actualCommand instanceof Print_descending) {
+                PrintDescendingDTO printDescendingDTO = new PrintDescendingDTO();
+                clientTool.sendRequest(printDescendingDTO);
+            }
+            if (actualCommand instanceof Save) {
+                SaveDTO saveDTO = new SaveDTO();
+                clientTool.sendRequest(saveDTO);
+            }
+            if (actualCommand instanceof Show) {
+                ShowDTO showDTO = new ShowDTO();
+                clientTool.sendRequest(showDTO);
+            }
+            ///
+            if (actualCommand instanceof Remove_key) {
+                RemoveKeyDTO removeKeyDTO = new RemoveKeyDTO();
+                removeKeyDTO.setStringArgument(commandArg);
+                clientTool.sendRequest(removeKeyDTO);
+            }
+            if (actualCommand instanceof Remove_any_by_category) {
+                RemoveAnyByCategoryDTO removeAnyByCategoryDTO = new RemoveAnyByCategoryDTO();
+                removeAnyByCategoryDTO.setStringArgument(commandArg);
+                clientTool.sendRequest(removeAnyByCategoryDTO);
+            }
+            ///
+            if (actualCommand instanceof Insert) {
+                InsertDTO insertDTO = new InsertDTO();
+                insertDTO.setStringArgument(commandArg);
+                insertDTO.setSpaceMarine(SpaceMarineGenerator.generate());
+                clientTool.sendRequest(insertDTO);
+            }
+//            if (actualCommand instanceof Insert) {
+//                InsertDTO insertDTO = new InsertDTO();
+//                insertDTO.setStringArgument(commandArg);
+//                insertDTO.setSpaceMarine(null);
+//                clientTool.sendRequest(insertDTO);
+//                if (clientTool.receiveAns().equals("Космический корабль с указанным id уже существует.")) return;
+//                insertDTO.setStringArgument(commandArg);
+//                insertDTO.setSpaceMarine(SpaceMarineGenerator.generate());
+//                clientTool.sendRequest(insertDTO);
+//            }
+            if (actualCommand instanceof Update) {
+                UpdateDTO updateDTO = new UpdateDTO();
+                updateDTO.setStringArgument(commandArg);
+                updateDTO.setSpaceMarine(SpaceMarineGenerator.generate());
+                clientTool.sendRequest(updateDTO);
+            }
+            if (actualCommand instanceof Replace_if_greater) {
+                ReplaceIfGreaterDTO replaceIfGreaterDTO = new ReplaceIfGreaterDTO();
+                replaceIfGreaterDTO.setStringArgument(commandArg);
+                replaceIfGreaterDTO.setSpaceMarine(SpaceMarineGenerator.generate());
+                clientTool.sendRequest(replaceIfGreaterDTO);
+            }
+
+
+//                SpaceMarine spaceMarine = SpaceMarineGenerator.generate();
+//                SpaceMarineCommand spaceMarineCommand = new SpaceMarineCommand(actualCommand.getName(), spaceMarine, commandArg);
+//                clientTool.sendRequest(spaceMarineCommand);
+
+
+//            if (actualCommand instanceof CommandWithoutArg) {
+//                NoArgumentCommand noArgumentCommand = new NoArgumentCommand(actualCommand.getName());
+//                clientTool.sendRequest(noArgumentCommand);
+//            }
+//
+//            if (actualCommand instanceof CommandWithArg) {
+//                ArgumentCommand argumentCommand = new ArgumentCommand(actualCommand.getName(), commandArg);
+//                clientTool.sendRequest(argumentCommand);
+//            }
+
             Console.write(clientTool.receiveAns().toString());
 
         } catch (NoCommandException e) {

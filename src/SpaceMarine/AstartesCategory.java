@@ -1,7 +1,9 @@
 package SpaceMarine;
 
 
-public enum AstartesCategory {
+import java.io.Serializable;
+
+public enum AstartesCategory implements Serializable {
     DREADNOUGHT,
     AGGRESSOR,
     CHAPLAIN

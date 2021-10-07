@@ -3,7 +3,6 @@ package Client.Commands;
 import Controller.Collection;
 import Controller.CommandWithArg;
 import SpaceMarine.SpaceMarine;
-
 import java.util.Map;
 
 public class Remove_any_by_category extends AbstractCommand implements CommandWithArg {

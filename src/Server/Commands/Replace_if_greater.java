@@ -2,25 +2,25 @@ package Server.Commands;
 
 import Controller.Collection;
 import Controller.CommandWithArg;
+import Controller.CommandWithSpaceMarine;
 import SpaceMarine.SpaceMarine;
 import SpaceMarine.SpaceMarineGenerator;
 
 import java.util.InputMismatchException;
 
-public class Replace_if_greater extends AbstractCommand implements CommandWithArg {
+public class Replace_if_greater extends AbstractCommand implements CommandWithSpaceMarine {
 
     public Replace_if_greater() {
         super("replace_if_greater", " [id] замена значения по ключу, если новое значение больше старого");
     }
 
     @Override
-    public String execute(Object args) {
+    public String execute(Object args, SpaceMarine newSpaceMarine) {
         try {
-            if (Collection.getSize() == 0) return ("Коллекция итак пустая.");
+            if (Collection.getSize() == 0) return ("Коллекция пустая");
             else {
                 int arg = Integer.parseInt((String) args);
                 if (!Collection.isKeyFree((arg))) {
-                    SpaceMarine newSpaceMarine = SpaceMarineGenerator.generate();
                     if (Collection.getCollection().get(arg).compareTo(newSpaceMarine) < 0) {
                         newSpaceMarine.setId(arg);
                         Collection.update(arg, newSpaceMarine);

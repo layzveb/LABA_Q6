@@ -1,5 +1,6 @@
 package Server;
 
+import CommonObjects.*;
 import Server.Commands.AbstractCommand;
 import Server.Commands.Clear;
 import Server.Commands.Help;

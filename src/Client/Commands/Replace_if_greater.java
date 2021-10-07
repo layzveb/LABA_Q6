@@ -2,12 +2,13 @@ package Client.Commands;
 
 import Controller.Collection;
 import Controller.CommandWithArg;
+import Controller.CommandWithSpaceMarine;
 import SpaceMarine.SpaceMarine;
 import SpaceMarine.SpaceMarineGenerator;
 
 import java.util.InputMismatchException;
 
-public class Replace_if_greater extends AbstractCommand implements CommandWithArg {
+public class Replace_if_greater extends AbstractCommand implements CommandWithSpaceMarine {
 
     public Replace_if_greater() {
         super("replace_if_greater", " [id] замена значения по ключу, если новое значение больше старого");

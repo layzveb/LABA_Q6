@@ -2,6 +2,7 @@ package CommonObjects;
 
 import Client.CommandKicker;
 import Server.ServerAnswer;
+import SpaceMarine.SpaceMarine;
 
 import java.io.*;
 
@@ -48,11 +49,11 @@ public class Serializer {
         return null;
     }
 
-    public CommandKicker unserializeCommand(byte[] bytes) {
+    public UniversalObjectToSend unserializeRequest(byte[] bytes) {
         try {
             ByteArrayInputStream bis = new ByteArrayInputStream(bytes);
             ObjectInputStream ois = new ObjectInputStream(bis);
-            return (CommandKicker) ois.readObject();
+            return (UniversalObjectToSend) ois.readObject();
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }

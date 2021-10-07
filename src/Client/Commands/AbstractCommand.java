@@ -1,5 +1,6 @@
 package Client.Commands;
 
+import SpaceMarine.SpaceMarine;
 import Utilites.ColorEdit;
 
 import java.io.Serializable;

@@ -1,6 +1,7 @@
 package Client;
 
 import CommonObjects.Serializer;
+import CommonObjects.UniversalObjectToSend;
 import Server.ServerAnswer;
 
 public class ClientTool {
@@ -18,9 +19,8 @@ public class ClientTool {
         return messObj;
     }
 
-    public void sendCommand(CommandKicker command) {
-        byte[] byteCommand = siri.serializeCommand(command);
-        packetTool.send(byteCommand);
+    public void sendRequest(UniversalObjectToSend request) {
+        byte[] byteRequest = siri.serializeRequest(request);
+        packetTool.send(byteRequest);
     }
-
 }

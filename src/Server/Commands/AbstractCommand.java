@@ -1,5 +1,6 @@
 package Server.Commands;
 
+import SpaceMarine.SpaceMarine;
 import Utilites.ColorEdit;
 
 import java.io.Serializable;
@@ -18,12 +19,17 @@ public abstract class AbstractCommand implements Serializable {
     }
     public String getDescription() {return description;}
 
-    public abstract String execute(Object commandArg);
+    public String execute(Object commandArg) {
+        return null;
+    }
+
+    public String execute(Object arg, SpaceMarine spaceMarine) {
+        return null;
+    }
 
     @Override
     public String toString() {
         return new StringBuilder().append(ColorEdit.YELLOW_BOLD_BRIGHT).append(" ✧  ").append(name).append(ColorEdit.RESET).append(ColorEdit.BLUE_BRIGHT).append(" ⋯ ").append(ColorEdit.RESET).append(description).toString();
     }
-
 
 }

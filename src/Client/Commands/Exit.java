@@ -10,7 +10,6 @@ public class Exit extends AbstractCommand implements CommandWithoutArg {
 
     @Override
     public String execute(Object o) {
-        System.exit(0);
         return null;
     }
 }

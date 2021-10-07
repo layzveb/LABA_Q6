@@ -2,12 +2,13 @@ package Client.Commands;
 
 import Controller.Collection;
 import Controller.CommandWithArg;
+import Controller.CommandWithSpaceMarine;
 import SpaceMarine.SpaceMarine;
 import SpaceMarine.SpaceMarineGenerator;
 
 import java.util.InputMismatchException;
 
-public class Update extends AbstractCommand implements CommandWithArg {
+public class Update extends AbstractCommand implements CommandWithSpaceMarine {
 
     public Update() {
         super("update", "[id] обновление значения элемента коллекции, id которого равен заданному");
