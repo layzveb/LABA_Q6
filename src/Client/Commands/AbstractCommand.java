@@ -25,5 +25,4 @@ public abstract class AbstractCommand implements Serializable {
         return new StringBuilder().append(ColorEdit.YELLOW_BOLD_BRIGHT).append(" ✧  ").append(name).append(ColorEdit.RESET).append(ColorEdit.BLUE_BRIGHT).append(" ⋯ ").append(ColorEdit.RESET).append(description).toString();
     }
 
-
 }

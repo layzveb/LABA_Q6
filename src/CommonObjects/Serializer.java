@@ -7,7 +7,7 @@ import java.io.*;
 
 public class Serializer {
 
-    public byte[] serializeCommand(CommandKicker obj) {
+    public byte[] serializeRequest(UniversalObjectToSend obj) {
         try {
             try(ByteArrayOutputStream bos = new ByteArrayOutputStream()){
                 try(ObjectOutputStream oos = new ObjectOutputStream(bos)){

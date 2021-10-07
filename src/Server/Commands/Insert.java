@@ -21,7 +21,7 @@ public class Insert extends AbstractCommand implements CommandWithArg {
                 Collection.insert(id, spaceMarine);
 
                 return "Космический корабль залетел в коллекцию.";
-            } else return "Космический корабль с указанным id же существует.";
+            } else return "Космический корабль с указанным id уже существует.";
 
         } catch (NumberFormatException e) {
             return "Аргумент команды должен быть типа \"int\"";

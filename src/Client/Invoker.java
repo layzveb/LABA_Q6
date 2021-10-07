@@ -1,7 +1,9 @@
 package Client;
 
-import Client.Commands.AbstractCommand;
+import Client.Commands.*;
+import CommonObjects.*;
 import Controller.CommandWithArg;
+import Controller.CommandWithSpaceMarine;
 import Controller.CommandWithoutArg;
 import Exceptions.ExtraArgumentException;
 import Exceptions.NoArgumentException;

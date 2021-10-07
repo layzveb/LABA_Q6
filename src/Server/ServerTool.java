@@ -14,7 +14,7 @@ public class ServerTool {
 
     public CommandKicker receiveCommandObj() {
         byte[] inComm = packetTool.receive();
-        CommandKicker messObj = siri.unserializeCommand(inComm);
+        UniversalObjectToSend messObj = siri.unserializeRequest(inComm);
         return messObj;
     }
 
